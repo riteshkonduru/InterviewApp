@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chrset="UTF 8">
+    <title>Interview</title>
+</head>
+<body  ng-app="sampleApp">
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<h1> Welcome Mr.World</h1>
+<div ng-controller="AngularController">
+
+    <form ng-submit="Display()">
+        &nbsp;&nbsp;&nbsp;
+        Type your Answer:<br>&nbsp;&nbsp;&nbsp;
+        <br>&nbsp;&nbsp;&nbsp;
+        <input type="text"  ng-app="sampleApp" ng-model="Topic"><br>&nbsp;&nbsp;&nbsp;
+        <br>&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="Submit"/>
+
+        <ul ng-repeat="topicname in answers">
+            <li>{{topicname.answer}}</li>
+        </ul>
+    </form>
+</div>
+
+<script>
+    var app = angular.module("sampleApp",[]);
+
+    app.controller("AngularController",function($scope) {
+    $scope.questions = ['test','test1']
+     $scope.answers = [{
+        question: '1Anil Singh',
+        answer: 'Anil Singh'
+      }, {
+        question: '2Anil Singh',
+        answer: 'Sunil Singh'
+      } ,{
+        question: '3Anil Singh',
+        answer: 'Sushil Singh'
+      }];
+
+
+        $scope.Display = function () {
+            $scope.answers.push($scope.Topic);
+        }
+    });
+</script>
+</body>
+</html>
